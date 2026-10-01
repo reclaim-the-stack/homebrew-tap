@@ -12,7 +12,8 @@ class K < Formula
 
   def install
     bin.install "k"
-    bin.install "k_pg_proxy"
+    # Revisions from before k_pg_proxy was folded into k (reclaim-the-stack/k#27) ship it separately
+    bin.install "k_pg_proxy" if (buildpath/"k_pg_proxy").exist?
   end
 
   test do
